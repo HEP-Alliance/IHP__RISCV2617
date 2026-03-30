@@ -6,12 +6,12 @@
 
 ## TRL3 - Experimental proof of concept
 
-- [ ] Is the IP functionality clearly described?
-- [ ] Have the potential applications of the IP been identified and described?
-- [ ] Are the IP requirements and specifications described (I/O description, Target technology, does it include a standard interface...)?
-- [ ] Has the RTL design been completed (Doesn't need to be synthesized)?
+- [x] Is the IP functionality clearly described?
+- [x] Have the potential applications of the IP been identified and described?
+- [x] Are the IP requirements and specifications described (I/O description, Target technology, does it include a standard interface...)?
+- [x] Has the RTL design been completed (Doesn't need to be synthesized)?
 - [x] Has a complete behavioral simulation been performed?
-- [ ] Is a RTL model provided (doesn't need to be synthesizable)?
+- [x] Is a RTL model provided (doesn't need to be synthesizable)?
 - [x] Are the behavioral testbenches provided?
 
 ## TRL4 - Component prototype
