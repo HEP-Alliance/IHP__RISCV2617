@@ -1,0 +1,8 @@
+29-Mär-2026 21:49:39 | INFO    | KLayout version detected: 0.30.7
+29-Mär-2026 21:49:39 | INFO    | Using DRC JSON file: /home/syndace/Projects/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+29-Mär-2026 23:18:35 | ERROR   | ==================================================================================
+29-Mär-2026 23:18:35 | ERROR   | KLayout DRC Check Failed: Violations were detected in the layout.
+29-Mär-2026 23:18:35 | ERROR   | ==================================================================================
+29-Mär-2026 23:18:35 | ERROR   | Violated rules are : {'Pad.fR_TM1', 'Pad.d1R'}
+
+29-Mär-2026 23:18:35 | INFO    | Total DRC Run time: 5336.01 seconds (including execution, analysis, and reporting)

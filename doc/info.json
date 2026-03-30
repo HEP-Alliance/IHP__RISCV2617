@@ -1,0 +1,22 @@
+{
+  "name": "RISCV2617",
+  "design_type": "D",
+  "technology": "IHP",
+  "unique_id": "2617",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 1800.0,
+  "sealring_y": 1800.0,
+  "repository": "https://github.com/HEP-Alliance/IHP__RISCV2617.git",
+  "pdk_version": "1178c4fac07974139cb991e54ccf38adf86be30c",
+  "process": "SG13CMOS5L",
+  "dependencies": {},
+  "tools": {},
+  "top_cell_name": "RISCV2617",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds",
+    "netlist": "release/v.1.0.0/netlist",
+    "doc": "release/v.1.0.0/doc"
+  }
+}

@@ -1,0 +1,549 @@
+
+==========================================================================
+global place report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+global place report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+global place report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 4.35
+
+==========================================================================
+global place report_clock_min_period
+--------------------------------------------------------------------------
+CORE_CLK period_min = 16.49 fmax = 60.66
+JTAG_TCK period_min = 16.05 fmax = 62.32
+
+==========================================================================
+global place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22483_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: min
+Corner: fast
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.04    0.09    0.41    0.41 v core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_srams_2.io_axi_arw_rValid (net)
+                  0.09    0.01    0.42 v _20742_/A (sg13cmos5l_nand2_1)
+     2    0.01    0.03    0.04    0.46 ^ _20742_/Y (sg13cmos5l_nand2_1)
+                                         _04370_ (net)
+                  0.03    0.00    0.46 ^ _20744_/A (sg13cmos5l_inv_1)
+     2    0.01    0.03    0.04    0.50 v _20744_/Y (sg13cmos5l_inv_1)
+                                         _04372_ (net)
+                  0.03    0.00    0.50 v _22483_/B (sg13cmos5l_and2_1)
+                                  0.50   data arrival time
+
+                  3.00   10.42   10.42   clock CORE_CLK (fall edge)
+                          0.00   10.42   clock network delay (ideal)
+                          0.08   10.50   clock uncertainty
+                          0.00   10.50   clock reconvergence pessimism
+                                 10.50 v _22483_/A (sg13cmos5l_and2_1)
+                          0.00   10.50   clock gating hold time
+                                 10.50   data required time
+-----------------------------------------------------------------------------
+                                 10.50   data required time
+                                 -0.50   data arrival time
+-----------------------------------------------------------------------------
+                                -10.00   slack (VIOLATED)
+
+
+Startpoint: core.core_srams_3.io_axi_arw_rData_addr[3]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: srams_3 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: min
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ core.core_srams_3.io_axi_arw_rData_addr[3]$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     2    0.01    0.07    0.80    0.80 ^ core.core_srams_3.io_axi_arw_rData_addr[3]$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_srams_3._zz_wordAddr[1] (net)
+                  0.07    0.00    0.80 ^ _20833_/A (sg13cmos5l_and2_1)
+     1    0.01    0.11    0.19    0.99 ^ _20833_/X (sg13cmos5l_and2_1)
+                                         core.core_srams_3.io_sram_A_ADDR[1] (net)
+                  0.14    0.00    0.99 ^ srams_3/A_ADDR[1] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                                  0.99   data arrival time
+
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.08    0.08   clock uncertainty
+                          0.00    0.08   clock reconvergence pessimism
+                                  0.08 ^ srams_3/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                          3.53    3.61   library hold time
+                                  3.61   data required time
+-----------------------------------------------------------------------------
+                                  3.61   data required time
+                                 -0.99   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.62   slack (VIOLATED)
+
+
+Startpoint: core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Endpoint: core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_
+          (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: min
+Corner: fast
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock JTAG_TCK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     2    0.01    0.03    0.36    0.36 v core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target (net)
+                  0.03    0.00    0.36 v _26367_/A (sg13cmos5l_xor2_1)
+     1    0.00    0.02    0.04    0.40 v _26367_/X (sg13cmos5l_xor2_1)
+                                         _01717_ (net)
+                  0.02    0.00    0.40 v core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_/D (sg13cmos5l_dfrbpq_1)
+                                  0.40   data arrival time
+
+                  3.00    0.00    0.00   clock JTAG_TCK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.06    0.06   clock uncertainty
+                          0.00    0.06   clock reconvergence pessimism
+                                  0.06 ^ core.jtagBridge_1.flowCCUnsafeByToggle_1.inputArea_target$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+                          0.18    0.24   library hold time
+                                  0.24   data required time
+-----------------------------------------------------------------------------
+                                  0.24   data required time
+                                 -0.40   data arrival time
+-----------------------------------------------------------------------------
+                                  0.16   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22475_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.13    0.83    1.30    1.30 ^ core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_gpio._zz_io_gpio_write_1 (net)
+                  0.83    0.03    1.33 ^ _20694_/A (sg13cmos5l_nand2_1)
+     3    0.07    0.73    0.89    2.22 v _20694_/Y (sg13cmos5l_nand2_1)
+                                         _04362_ (net)
+                  0.73    0.03    2.24 v _20695_/B (sg13cmos5l_nand2_1)
+     2    0.01    0.21    0.29    2.53 ^ _20695_/Y (sg13cmos5l_nand2_1)
+                                         _04363_ (net)
+                  0.21    0.00    2.53 ^ _20697_/A (sg13cmos5l_inv_1)
+     8    0.06    0.31    0.36    2.89 v _20697_/Y (sg13cmos5l_inv_1)
+                                         _04365_ (net)
+                  0.31    0.00    2.89 v _22475_/B (sg13cmos5l_and2_1)
+                                  2.89   data arrival time
+
+                  3.00   20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock network delay (ideal)
+                         -0.06   20.77   clock uncertainty
+                          0.00   20.77   clock reconvergence pessimism
+                                 20.77 ^ _22475_/A (sg13cmos5l_and2_1)
+                          0.00   20.77   clock gating setup time
+                                 20.77   data required time
+-----------------------------------------------------------------------------
+                                 20.77   data required time
+                                 -2.89   data arrival time
+-----------------------------------------------------------------------------
+                                 17.88   slack (MET)
+
+
+Startpoint: srams_0 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ srams_0/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+     2    0.11    0.22    7.42    7.42 v srams_0/A_DOUT[22] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                                         core.axi4ReadOnlyDecoder_1.io_outputs_0_r_payload_data[22] (net)
+                  0.22    0.07    7.49 v _19684_/A0 (sg13cmos5l_mux2_1)
+     1    0.01    0.07    0.25    7.74 v _19684_/X (sg13cmos5l_mux2_1)
+                                         _03473_ (net)
+                  0.07    0.00    7.74 v _19686_/A2 (sg13cmos5l_o21ai_1)
+     1    0.02    0.40    0.35    8.10 ^ _19686_/Y (sg13cmos5l_o21ai_1)
+                                         _03475_ (net)
+                  0.40    0.00    8.10 ^ _19687_/B1 (sg13cmos5l_a22oi_1)
+     3    0.01    0.20    0.25    8.34 v _19687_/Y (sg13cmos5l_a22oi_1)
+                                         _03476_ (net)
+                  0.20    0.00    8.34 v _19688_/B (sg13cmos5l_nor2_1)
+     1    0.01    0.23    0.16    8.51 ^ _19688_/Y (sg13cmos5l_nor2_1)
+                                         _03477_ (net)
+                  0.23    0.00    8.51 ^ _19689_/B1 (sg13cmos5l_a21oi_1)
+     3    0.01    0.24    0.15    8.66 v _19689_/Y (sg13cmos5l_a21oi_1)
+                                         _03478_ (net)
+                  0.24    0.00    8.66 v _19703_/A2 (sg13cmos5l_a21oi_1)
+     2    0.03    0.36    0.40    9.06 ^ _19703_/Y (sg13cmos5l_a21oi_1)
+                                         _03492_ (net)
+                  0.36    0.00    9.06 ^ _19753_/A2 (sg13cmos5l_o21ai_1)
+     4    0.03    0.36    0.44    9.50 v _19753_/Y (sg13cmos5l_o21ai_1)
+                                         _03542_ (net)
+                  0.36    0.00    9.50 v _19780_/A (sg13cmos5l_or2_1)
+     4    0.02    0.12    0.33    9.83 v _19780_/X (sg13cmos5l_or2_1)
+                                         _03569_ (net)
+                  0.12    0.00    9.83 v _19825_/B (sg13cmos5l_or3_1)
+     4    0.04    0.22    0.41   10.25 v _19825_/X (sg13cmos5l_or3_1)
+                                         _03614_ (net)
+                  0.22    0.00   10.25 v _19936_/A (sg13cmos5l_nor3_1)
+     2    0.01    0.29    0.31   10.56 ^ _19936_/Y (sg13cmos5l_nor3_1)
+                                         _03725_ (net)
+                  0.29    0.00   10.56 ^ _19937_/B (sg13cmos5l_and2_1)
+     6    0.03    0.23    0.37   10.93 ^ _19937_/X (sg13cmos5l_and2_1)
+                                         _03726_ (net)
+                  0.23    0.00   10.93 ^ _20163_/A_N (sg13cmos5l_nand3b_1)
+     1    0.00    0.08    0.18   11.12 ^ _20163_/Y (sg13cmos5l_nand3b_1)
+                                         _03947_ (net)
+                  0.08    0.00   11.12 ^ _20164_/B1 (sg13cmos5l_o21ai_1)
+     4    0.02    0.23    0.21   11.32 v _20164_/Y (sg13cmos5l_o21ai_1)
+                                         _03948_ (net)
+                  0.23    0.00   11.33 v _20186_/A_N (sg13cmos5l_nand2b_1)
+     2    0.01    0.12    0.22   11.55 v _20186_/Y (sg13cmos5l_nand2b_1)
+                                         _03968_ (net)
+                  0.12    0.00   11.55 v _20187_/B1 (sg13cmos5l_a221oi_1)
+     1    0.02    0.54    0.48   12.03 ^ _20187_/Y (sg13cmos5l_a221oi_1)
+                                         _03969_ (net)
+                  0.54    0.00   12.03 ^ _20188_/B (sg13cmos5l_nand2b_1)
+     1    0.01    0.13    0.22   12.26 v _20188_/Y (sg13cmos5l_nand2b_1)
+                                         _03970_ (net)
+                  0.13    0.00   12.26 v _20189_/B1 (sg13cmos5l_o21ai_1)
+     8    0.09    1.40    0.55   12.80 ^ _20189_/Y (sg13cmos5l_o21ai_1)
+                                         _03971_ (net)
+                  1.40    0.04   12.84 ^ place7753/A (sg13cmos5l_buf_1)
+     7    0.04    0.29    0.56   13.40 ^ place7753/X (sg13cmos5l_buf_1)
+                                         net7752 (net)
+                  0.29    0.00   13.40 ^ place7747/A (sg13cmos5l_buf_1)
+     8    0.07    0.47    0.50   13.90 ^ place7747/X (sg13cmos5l_buf_1)
+                                         net7746 (net)
+                  0.47    0.01   13.91 ^ place7746/A (sg13cmos5l_buf_1)
+     4    0.05    0.30    0.42   14.33 ^ place7746/X (sg13cmos5l_buf_1)
+                                         net7745 (net)
+                  0.30    0.01   14.34 ^ place7742/A (sg13cmos5l_buf_1)
+     8    0.07    0.42    0.47   14.80 ^ place7742/X (sg13cmos5l_buf_1)
+                                         net7741 (net)
+                  0.42    0.01   14.81 ^ place7741/A (sg13cmos5l_buf_1)
+     7    0.05    0.32    0.43   15.24 ^ place7741/X (sg13cmos5l_buf_1)
+                                         net7740 (net)
+                  0.32    0.00   15.24 ^ place7740/A (sg13cmos5l_buf_1)
+     6    0.04    0.27    0.37   15.60 ^ place7740/X (sg13cmos5l_buf_1)
+                                         net7739 (net)
+                  0.27    0.00   15.61 ^ _20980_/S1 (sg13cmos5l_mux4_1)
+     1    0.00    0.07    0.22   15.83 ^ _20980_/X (sg13cmos5l_mux4_1)
+                                         _04507_ (net)
+                  0.07    0.00   15.83 ^ _20981_/B (sg13cmos5l_or2_1)
+     1    0.01    0.07    0.13   15.96 ^ _20981_/X (sg13cmos5l_or2_1)
+                                         _04508_ (net)
+                  0.07    0.00   15.96 ^ _20982_/B1 (sg13cmos5l_o21ai_1)
+     1    0.01    0.17    0.12   16.08 v _20982_/Y (sg13cmos5l_o21ai_1)
+                                         _04509_ (net)
+                  0.17    0.00   16.09 v _20995_/A (sg13cmos5l_nor4_1)
+     1    0.00    0.22    0.30   16.38 ^ _20995_/Y (sg13cmos5l_nor4_1)
+                                         _00021_ (net)
+                  0.22    0.00   16.39 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_/D (sg13cmos5l_dfrbpq_1)
+                                 16.39   data arrival time
+
+                  3.00   20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock network delay (ideal)
+                         -0.06   20.77   clock uncertainty
+                          0.00   20.77   clock reconvergence pessimism
+                                 20.77 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+                         -0.04   20.73   library setup time
+                                 20.73   data required time
+-----------------------------------------------------------------------------
+                                 20.73   data required time
+                                -16.39   data arrival time
+-----------------------------------------------------------------------------
+                                  4.35   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK')
+Endpoint: jtag_tdo (output port clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00   33.33   33.33   clock JTAG_TCK' (rise edge)
+                          0.00   33.33   clock network delay (ideal)
+                  3.00    0.00   33.33 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK (sg13cmos5l_dfrbpq_1)
+     1    0.06    0.35    1.01   34.34 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.io_jtag_tdo (net)
+                  0.47    0.01   34.35 ^ pad_jtag_tdo/c2p (sg13cmos5l_IOPadOut4mA)
+     2   10.00   14.17    8.80   43.15 ^ pad_jtag_tdo/pad (sg13cmos5l_IOPadOut4mA)
+                                         jtag_tdo (net)
+                  0.00    0.00   43.15 ^ jtag_tdo (out)
+                                 43.15   data arrival time
+
+                  3.00   66.67   66.67   clock JTAG_TCK (rise edge)
+                          0.00   66.67   clock network delay (ideal)
+                         -0.12   66.55   clock uncertainty
+                          0.00   66.55   clock reconvergence pessimism
+                        -15.80   50.75   output external delay
+                                 50.75   data required time
+-----------------------------------------------------------------------------
+                                 50.75   data required time
+                                -43.15   data arrival time
+-----------------------------------------------------------------------------
+                                  7.60   slack (MET)
+
+
+
+==========================================================================
+global place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22475_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.13    0.83    1.30    1.30 ^ core.core_gpio._zz_io_gpio_write_1$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_gpio._zz_io_gpio_write_1 (net)
+                  0.83    0.03    1.33 ^ _20694_/A (sg13cmos5l_nand2_1)
+     3    0.07    0.73    0.89    2.22 v _20694_/Y (sg13cmos5l_nand2_1)
+                                         _04362_ (net)
+                  0.73    0.03    2.24 v _20695_/B (sg13cmos5l_nand2_1)
+     2    0.01    0.21    0.29    2.53 ^ _20695_/Y (sg13cmos5l_nand2_1)
+                                         _04363_ (net)
+                  0.21    0.00    2.53 ^ _20697_/A (sg13cmos5l_inv_1)
+     8    0.06    0.31    0.36    2.89 v _20697_/Y (sg13cmos5l_inv_1)
+                                         _04365_ (net)
+                  0.31    0.00    2.89 v _22475_/B (sg13cmos5l_and2_1)
+                                  2.89   data arrival time
+
+                  3.00   20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock network delay (ideal)
+                         -0.06   20.77   clock uncertainty
+                          0.00   20.77   clock reconvergence pessimism
+                                 20.77 ^ _22475_/A (sg13cmos5l_and2_1)
+                          0.00   20.77   clock gating setup time
+                                 20.77   data required time
+-----------------------------------------------------------------------------
+                                 20.77   data required time
+                                 -2.89   data arrival time
+-----------------------------------------------------------------------------
+                                 17.88   slack (MET)
+
+
+Startpoint: srams_0 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00    0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  3.00    0.00    0.00 ^ srams_0/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+     2    0.11    0.22    7.42    7.42 v srams_0/A_DOUT[22] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                                         core.axi4ReadOnlyDecoder_1.io_outputs_0_r_payload_data[22] (net)
+                  0.22    0.07    7.49 v _19684_/A0 (sg13cmos5l_mux2_1)
+     1    0.01    0.07    0.25    7.74 v _19684_/X (sg13cmos5l_mux2_1)
+                                         _03473_ (net)
+                  0.07    0.00    7.74 v _19686_/A2 (sg13cmos5l_o21ai_1)
+     1    0.02    0.40    0.35    8.10 ^ _19686_/Y (sg13cmos5l_o21ai_1)
+                                         _03475_ (net)
+                  0.40    0.00    8.10 ^ _19687_/B1 (sg13cmos5l_a22oi_1)
+     3    0.01    0.20    0.25    8.34 v _19687_/Y (sg13cmos5l_a22oi_1)
+                                         _03476_ (net)
+                  0.20    0.00    8.34 v _19688_/B (sg13cmos5l_nor2_1)
+     1    0.01    0.23    0.16    8.51 ^ _19688_/Y (sg13cmos5l_nor2_1)
+                                         _03477_ (net)
+                  0.23    0.00    8.51 ^ _19689_/B1 (sg13cmos5l_a21oi_1)
+     3    0.01    0.24    0.15    8.66 v _19689_/Y (sg13cmos5l_a21oi_1)
+                                         _03478_ (net)
+                  0.24    0.00    8.66 v _19703_/A2 (sg13cmos5l_a21oi_1)
+     2    0.03    0.36    0.40    9.06 ^ _19703_/Y (sg13cmos5l_a21oi_1)
+                                         _03492_ (net)
+                  0.36    0.00    9.06 ^ _19753_/A2 (sg13cmos5l_o21ai_1)
+     4    0.03    0.36    0.44    9.50 v _19753_/Y (sg13cmos5l_o21ai_1)
+                                         _03542_ (net)
+                  0.36    0.00    9.50 v _19780_/A (sg13cmos5l_or2_1)
+     4    0.02    0.12    0.33    9.83 v _19780_/X (sg13cmos5l_or2_1)
+                                         _03569_ (net)
+                  0.12    0.00    9.83 v _19825_/B (sg13cmos5l_or3_1)
+     4    0.04    0.22    0.41   10.25 v _19825_/X (sg13cmos5l_or3_1)
+                                         _03614_ (net)
+                  0.22    0.00   10.25 v _19936_/A (sg13cmos5l_nor3_1)
+     2    0.01    0.29    0.31   10.56 ^ _19936_/Y (sg13cmos5l_nor3_1)
+                                         _03725_ (net)
+                  0.29    0.00   10.56 ^ _19937_/B (sg13cmos5l_and2_1)
+     6    0.03    0.23    0.37   10.93 ^ _19937_/X (sg13cmos5l_and2_1)
+                                         _03726_ (net)
+                  0.23    0.00   10.93 ^ _20163_/A_N (sg13cmos5l_nand3b_1)
+     1    0.00    0.08    0.18   11.12 ^ _20163_/Y (sg13cmos5l_nand3b_1)
+                                         _03947_ (net)
+                  0.08    0.00   11.12 ^ _20164_/B1 (sg13cmos5l_o21ai_1)
+     4    0.02    0.23    0.21   11.32 v _20164_/Y (sg13cmos5l_o21ai_1)
+                                         _03948_ (net)
+                  0.23    0.00   11.33 v _20186_/A_N (sg13cmos5l_nand2b_1)
+     2    0.01    0.12    0.22   11.55 v _20186_/Y (sg13cmos5l_nand2b_1)
+                                         _03968_ (net)
+                  0.12    0.00   11.55 v _20187_/B1 (sg13cmos5l_a221oi_1)
+     1    0.02    0.54    0.48   12.03 ^ _20187_/Y (sg13cmos5l_a221oi_1)
+                                         _03969_ (net)
+                  0.54    0.00   12.03 ^ _20188_/B (sg13cmos5l_nand2b_1)
+     1    0.01    0.13    0.22   12.26 v _20188_/Y (sg13cmos5l_nand2b_1)
+                                         _03970_ (net)
+                  0.13    0.00   12.26 v _20189_/B1 (sg13cmos5l_o21ai_1)
+     8    0.09    1.40    0.55   12.80 ^ _20189_/Y (sg13cmos5l_o21ai_1)
+                                         _03971_ (net)
+                  1.40    0.04   12.84 ^ place7753/A (sg13cmos5l_buf_1)
+     7    0.04    0.29    0.56   13.40 ^ place7753/X (sg13cmos5l_buf_1)
+                                         net7752 (net)
+                  0.29    0.00   13.40 ^ place7747/A (sg13cmos5l_buf_1)
+     8    0.07    0.47    0.50   13.90 ^ place7747/X (sg13cmos5l_buf_1)
+                                         net7746 (net)
+                  0.47    0.01   13.91 ^ place7746/A (sg13cmos5l_buf_1)
+     4    0.05    0.30    0.42   14.33 ^ place7746/X (sg13cmos5l_buf_1)
+                                         net7745 (net)
+                  0.30    0.01   14.34 ^ place7742/A (sg13cmos5l_buf_1)
+     8    0.07    0.42    0.47   14.80 ^ place7742/X (sg13cmos5l_buf_1)
+                                         net7741 (net)
+                  0.42    0.01   14.81 ^ place7741/A (sg13cmos5l_buf_1)
+     7    0.05    0.32    0.43   15.24 ^ place7741/X (sg13cmos5l_buf_1)
+                                         net7740 (net)
+                  0.32    0.00   15.24 ^ place7740/A (sg13cmos5l_buf_1)
+     6    0.04    0.27    0.37   15.60 ^ place7740/X (sg13cmos5l_buf_1)
+                                         net7739 (net)
+                  0.27    0.00   15.61 ^ _20980_/S1 (sg13cmos5l_mux4_1)
+     1    0.00    0.07    0.22   15.83 ^ _20980_/X (sg13cmos5l_mux4_1)
+                                         _04507_ (net)
+                  0.07    0.00   15.83 ^ _20981_/B (sg13cmos5l_or2_1)
+     1    0.01    0.07    0.13   15.96 ^ _20981_/X (sg13cmos5l_or2_1)
+                                         _04508_ (net)
+                  0.07    0.00   15.96 ^ _20982_/B1 (sg13cmos5l_o21ai_1)
+     1    0.01    0.17    0.12   16.08 v _20982_/Y (sg13cmos5l_o21ai_1)
+                                         _04509_ (net)
+                  0.17    0.00   16.09 v _20995_/A (sg13cmos5l_nor4_1)
+     1    0.00    0.22    0.30   16.38 ^ _20995_/Y (sg13cmos5l_nor4_1)
+                                         _00021_ (net)
+                  0.22    0.00   16.39 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_/D (sg13cmos5l_dfrbpq_1)
+                                 16.39   data arrival time
+
+                  3.00   20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock network delay (ideal)
+                         -0.06   20.77   clock uncertainty
+                          0.00   20.77   clock reconvergence pessimism
+                                 20.77 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[29]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+                         -0.04   20.73   library setup time
+                                 20.73   data required time
+-----------------------------------------------------------------------------
+                                 20.73   data required time
+                                -16.39   data arrival time
+-----------------------------------------------------------------------------
+                                  4.35   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK')
+Endpoint: jtag_tdo (output port clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  3.00   33.33   33.33   clock JTAG_TCK' (rise edge)
+                          0.00   33.33   clock network delay (ideal)
+                  3.00    0.00   33.33 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK (sg13cmos5l_dfrbpq_1)
+     1    0.06    0.35    1.01   34.34 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.io_jtag_tdo (net)
+                  0.47    0.01   34.35 ^ pad_jtag_tdo/c2p (sg13cmos5l_IOPadOut4mA)
+     2   10.00   14.17    8.80   43.15 ^ pad_jtag_tdo/pad (sg13cmos5l_IOPadOut4mA)
+                                         jtag_tdo (net)
+                  0.00    0.00   43.15 ^ jtag_tdo (out)
+                                 43.15   data arrival time
+
+                  3.00   66.67   66.67   clock JTAG_TCK (rise edge)
+                          0.00   66.67   clock network delay (ideal)
+                         -0.12   66.55   clock uncertainty
+                          0.00   66.55   clock reconvergence pessimism
+                        -15.80   50.75   output external delay
+                                 50.75   data required time
+-----------------------------------------------------------------------------
+                                 50.75   data required time
+                                -43.15   data arrival time
+-----------------------------------------------------------------------------
+                                  7.60   slack (MET)
+
+
+
+==========================================================================
+global place report_power
+--------------------------------------------------------------------------
+Corner: slow
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.02e-05   0.00e+00   7.36e-06   9.76e-05  39.0%
+Combinational          1.94e-06   5.86e-05   8.90e-06   6.94e-05  27.7%
+Clock                  0.00e+00   0.00e+00   2.20e-09   2.20e-09   0.0%
+Macro                  7.66e-05   0.00e+00   5.23e-06   8.18e-05  32.7%
+Pad                    4.09e-07   9.47e-07   1.85e-07   1.54e-06   0.6%
+----------------------------------------------------------------
+Total                  1.69e-04   5.95e-05   2.17e-05   2.50e-04 100.0%
+                          67.6%      23.8%       8.7%
+Corner: typ
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.13e-04   0.00e+00   1.79e-06   1.15e-04  36.9%
+Combinational          2.47e-06   8.02e-05   2.71e-06   8.54e-05  27.5%
+Clock                  0.00e+00   0.00e+00   5.23e-10   5.23e-10   0.0%
+Macro                  1.04e-04   0.00e+00   5.23e-06   1.09e-04  35.1%
+Pad                    5.09e-07   1.18e-06   3.42e-08   1.72e-06   0.6%
+----------------------------------------------------------------
+Total                  2.20e-04   8.14e-05   9.76e-06   3.11e-04 100.0%
+                          70.7%      26.2%       3.1%
+Corner: fast
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.29e-04   0.00e+00   3.43e-06   1.32e-04  29.6%
+Combinational          3.23e-06   1.03e-04   5.51e-06   1.12e-04  25.1%
+Clock                  0.00e+00   0.00e+00   1.13e-09   1.13e-09   0.0%
+Macro                  1.94e-04   0.00e+00   5.23e-06   1.99e-04  44.7%
+Pad                    1.02e-06   1.44e-06   5.99e-08   2.52e-06   0.6%
+----------------------------------------------------------------
+Total                  3.27e-04   1.05e-04   1.42e-05   4.45e-04 100.0%
+                          73.3%      23.5%       3.2%

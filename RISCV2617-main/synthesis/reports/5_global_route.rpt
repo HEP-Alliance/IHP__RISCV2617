@@ -1,0 +1,1624 @@
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 1.20
+
+==========================================================================
+global route report_clock_min_period
+--------------------------------------------------------------------------
+CORE_CLK period_min = 16.75 fmax = 59.71
+JTAG_TCK period_min = 15.65 fmax = 63.88
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock CORE_CLK
+   1.94 source latency core.core_srams_0.stage_payload_id_regNext_1[3]$_DFF_P_/CLK ^
+  -1.53 target latency srams_1/A_CLK ^
+   0.06 clock uncertainty
+  -0.00 CRPR
+--------------
+   0.47 setup skew
+
+Clock JTAG_TCK
+   0.76 source latency core.jtagBridge_1.jtag_tap_fsm_state[1]$_DFF_P_/CLK ^
+  -1.45 target latency core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK ^
+   0.12 clock uncertainty
+  -0.01 CRPR
+--------------
+  -0.58 setup skew
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22483_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: min
+Corner: fast
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.20    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.24    0.09    0.09 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.61    0.25    0.34 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.03    0.15    0.49 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.03    0.00    0.49 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.25    0.03    0.06    0.55 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.04    0.01    0.56 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.30    0.05    0.07    0.63 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_2_0_core.apb3Router_1.clk_regs (net)
+                  0.12    0.06    0.69 ^ clkbuf_5_17__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.22    0.04    0.09    0.78 ^ clkbuf_5_17__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_17__leaf_core.apb3Router_1.clk_regs (net)
+                  0.05    0.01    0.80 ^ clkbuf_leaf_181_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    16    0.09    0.02    0.06    0.86 ^ clkbuf_leaf_181_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_181_core.apb3Router_1.clk_regs (net)
+                  0.03    0.00    0.86 ^ core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.02    0.04    0.14    1.00 v core.core_srams_2.io_axi_arw_rValid$_DFFE_PN0P_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_srams_2.io_axi_arw_rValid (net)
+                  0.04    0.00    1.00 v hold9873/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.27    1.27 v hold9873/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9872 (net)
+                  0.03    0.00    1.27 v hold9789/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    1.53 v hold9789/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9788 (net)
+                  0.03    0.00    1.53 v hold9874/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    1.80 v hold9874/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9873 (net)
+                  0.03    0.00    1.80 v hold9751/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    2.06 v hold9751/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9750 (net)
+                  0.03    0.00    2.06 v hold9875/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    2.32 v hold9875/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9874 (net)
+                  0.03    0.00    2.32 v hold9790/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    2.58 v hold9790/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9789 (net)
+                  0.03    0.00    2.58 v hold9876/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    2.84 v hold9876/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9875 (net)
+                  0.03    0.00    2.84 v _20742_/A (sg13cmos5l_nand2_1)
+     2    0.01    0.03    0.04    2.88 ^ _20742_/Y (sg13cmos5l_nand2_1)
+                                         _04370_ (net)
+                  0.03    0.00    2.88 ^ hold9892/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.02    0.25    3.13 ^ hold9892/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9891 (net)
+                  0.02    0.00    3.13 ^ hold9877/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    3.39 ^ hold9877/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9876 (net)
+                  0.03    0.00    3.39 ^ hold9835/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    3.64 ^ hold9835/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9834 (net)
+                  0.03    0.00    3.64 ^ hold9878/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    3.90 ^ hold9878/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9877 (net)
+                  0.03    0.00    3.90 ^ hold9791/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    4.16 ^ hold9791/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9790 (net)
+                  0.03    0.00    4.16 ^ hold9879/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    4.41 ^ hold9879/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9878 (net)
+                  0.03    0.00    4.41 ^ hold9836/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.02    0.25    4.66 ^ hold9836/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9835 (net)
+                  0.02    0.00    4.66 ^ hold9880/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    4.92 ^ hold9880/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9879 (net)
+                  0.03    0.00    4.92 ^ hold9752/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    5.17 ^ hold9752/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9751 (net)
+                  0.03    0.00    5.17 ^ hold9881/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.02    0.25    5.42 ^ hold9881/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9880 (net)
+                  0.02    0.00    5.42 ^ hold9837/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    5.67 ^ hold9837/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9836 (net)
+                  0.03    0.00    5.67 ^ hold9792/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    5.93 ^ hold9792/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9791 (net)
+                  0.03    0.00    5.93 ^ hold9838/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.25    6.18 ^ hold9838/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9837 (net)
+                  0.03    0.00    6.18 ^ _20744_/A (sg13cmos5l_inv_1)
+     2    0.01    0.03    0.03    6.21 v _20744_/Y (sg13cmos5l_inv_1)
+                                         _04372_ (net)
+                  0.03    0.00    6.21 v hold9839/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.03    0.25    6.47 v hold9839/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9838 (net)
+                  0.03    0.00    6.47 v hold9793/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.03    0.25    6.72 v hold9793/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9792 (net)
+                  0.03    0.00    6.72 v hold9840/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.03    0.25    6.98 v hold9840/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9839 (net)
+                  0.03    0.00    6.98 v hold9753/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.02    0.25    7.23 v hold9753/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9752 (net)
+                  0.02    0.00    7.23 v hold9841/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.03    0.25    7.48 v hold9841/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9840 (net)
+                  0.03    0.00    7.48 v hold9794/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.03    0.26    7.74 v hold9794/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9793 (net)
+                  0.03    0.00    7.74 v hold9842/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.03    0.26    8.00 v hold9842/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9841 (net)
+                  0.03    0.00    8.00 v _22483_/B (sg13cmos5l_and2_1)
+                                  8.00   data arrival time
+
+                         10.42   10.42   clock CORE_CLK (fall edge)
+                          0.00   10.42   clock source latency
+     2    0.23    0.00    0.00   10.42 v clk (in)
+                                         clk (net)
+                  0.00    0.00   10.42 v pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.24    0.30   10.71 v pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.65    0.27   10.98 v clkbuf_0_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.09    0.04    0.16   11.14 v clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk (net)
+                  0.05    0.01   11.15 v clkbuf_1_1__f_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.17    0.02    0.06   11.21 v clkbuf_1_1__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_1_1__leaf_core.apb3Router_1.clk (net)
+                  0.08    0.04   11.25 v _22483_/A (sg13cmos5l_and2_1)
+                          0.08   11.33   clock uncertainty
+                          0.00   11.33   clock reconvergence pessimism
+                          0.00   11.33   clock gating hold time
+                                 11.33   data required time
+-----------------------------------------------------------------------------
+                                 11.33   data required time
+                                 -8.00   data arrival time
+-----------------------------------------------------------------------------
+                                 -3.33   slack (VIOLATED)
+
+
+Startpoint: core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: min
+Corner: fast
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.20    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.24    0.09    0.09 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.61    0.25    0.34 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.03    0.15    0.49 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.03    0.00    0.49 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.25    0.03    0.06    0.55 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.04    0.01    0.56 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.30    0.05    0.07    0.63 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_2_0_core.apb3Router_1.clk_regs (net)
+                  0.08    0.03    0.66 ^ clkbuf_5_23__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.21    0.04    0.08    0.74 ^ clkbuf_5_23__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_23__leaf_core.apb3Router_1.clk_regs (net)
+                  0.08    0.03    0.77 ^ clkbuf_leaf_98_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    13    0.10    0.03    0.07    0.84 ^ clkbuf_leaf_98_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_98_core.apb3Router_1.clk_regs (net)
+                  0.03    0.00    0.84 ^ core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_/CLK (sg13cmos5l_dfrbpq_1)
+     3    0.03    0.07    0.16    1.00 v core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_cpu.decode_to_execute_IS_MUL (net)
+                  0.07    0.00    1.00 v _26644_/A1 (sg13cmos5l_mux2_1)
+     1    0.00    0.02    0.09    1.09 v _26644_/X (sg13cmos5l_mux2_1)
+                                         _01761_ (net)
+                  0.02    0.00    1.09 v core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_/D (sg13cmos5l_dfrbpq_1)
+                                  1.09   data arrival time
+
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.24    0.09    0.09 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.64    0.27    0.35 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.04    0.15    0.50 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.04    0.00    0.50 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.26    0.03    0.06    0.57 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.05    0.01    0.58 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.32    0.05    0.07    0.65 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_2_0_core.apb3Router_1.clk_regs (net)
+                  0.11    0.05    0.70 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.26    0.03    0.08    0.78 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_19__leaf_core.apb3Router_1.clk_regs (net)
+                  0.29    0.14    0.92 ^ clkbuf_leaf_96_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    17    0.11    0.04    0.12    1.04 ^ clkbuf_leaf_96_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_96_core.apb3Router_1.clk_regs (net)
+                  0.04    0.01    1.05 ^ core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_/CLK (sg13cmos5l_dfrbpq_1)
+                          0.08    1.13   clock uncertainty
+                         -0.02    1.11   clock reconvergence pessimism
+                         -0.02    1.09   library hold time
+                                  1.09   data required time
+-----------------------------------------------------------------------------
+                                  1.09   data required time
+                                 -1.09   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Endpoint: core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: min
+Corner: fast
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock JTAG_TCK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.20    0.00    0.00    0.00 ^ jtag_tck (in)
+                                         jtag_tck (net)
+                  0.00    0.00    0.00 ^ pad_jtag_tck/pad (sg13cmos5l_IOPadIn)
+     1    0.09    0.12    0.07    0.07 ^ pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+                                         core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.12    0.04    0.11 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+    16    0.41    0.03    0.09    0.19 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.30    0.15    0.34 ^ clkbuf_4_12_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+     6    0.03    0.03    0.11    0.46 ^ clkbuf_4_12_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_4_12_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.03    0.00    0.46 ^ core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+     2    0.01    0.03    0.12    0.58 v core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.jtag_idcodeArea_shifter[17] (net)
+                  0.03    0.00    0.58 v _28440_/A (sg13cmos5l_nand2_1)
+     1    0.01    0.02    0.03    0.61 ^ _28440_/Y (sg13cmos5l_nand2_1)
+                                         _10086_ (net)
+                  0.02    0.00    0.61 ^ _28442_/A1 (sg13cmos5l_a21oi_1)
+     1    0.00    0.03    0.03    0.64 v _28442_/Y (sg13cmos5l_a21oi_1)
+                                         _02113_ (net)
+                  0.03    0.00    0.64 v core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_/D (sg13cmos5l_dfrbpq_1)
+                                  0.64   data arrival time
+
+                          0.00    0.00   clock JTAG_TCK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ jtag_tck (in)
+                                         jtag_tck (net)
+                  0.00    0.00    0.00 ^ pad_jtag_tck/pad (sg13cmos5l_IOPadIn)
+     1    0.10    0.12    0.07    0.07 ^ pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+                                         core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.13    0.04    0.11 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+    16    0.46    0.03    0.09    0.20 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.35    0.18    0.37 ^ clkbuf_4_9_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+     6    0.04    0.03    0.12    0.50 ^ clkbuf_4_9_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_4_9_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.03    0.00    0.50 ^ core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+                          0.06    0.56   clock uncertainty
+                          0.00    0.55   clock reconvergence pessimism
+                         -0.02    0.53   library hold time
+                                  0.53   data required time
+-----------------------------------------------------------------------------
+                                  0.53   data required time
+                                 -0.64   data arrival time
+-----------------------------------------------------------------------------
+                                  0.11   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22483_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.68    0.25    0.25 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.80    0.28    0.53 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.07    0.31    0.84 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.07    0.00    0.84 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.25    0.11    0.16    1.00 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.11    0.01    1.01 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.30    0.14    0.20    1.21 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_2_0_core.apb3Router_1.clk_regs (net)
+                  0.16    0.04    1.25 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.24    0.07    0.18    1.44 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_19__leaf_core.apb3Router_1.clk_regs (net)
+                  0.27    0.13    1.56 ^ clkbuf_leaf_167_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    11    0.08    0.06    0.22    1.78 ^ clkbuf_leaf_167_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_167_core.apb3Router_1.clk_regs (net)
+                  0.06    0.00    1.78 ^ core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.15    0.95    0.89    2.67 ^ core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_gpio._zz_io_gpio_write_2 (net)
+                  0.95    0.01    2.68 ^ hold9902/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.89    3.57 ^ hold9902/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9901 (net)
+                  0.08    0.00    3.57 ^ hold9889/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.12    0.65    4.22 ^ hold9889/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9888 (net)
+                  0.12    0.00    4.22 ^ _20741_/A (sg13cmos5l_nand2_1)
+     3    0.16    1.50    1.11    5.33 v _20741_/Y (sg13cmos5l_nand2_1)
+                                         _04369_ (net)
+                  1.50    0.03    5.36 v hold9890/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    1.09    6.45 v hold9890/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9889 (net)
+                  0.06    0.00    6.45 v hold9834/A (sg13cmos5l_dlygate4sd3_1)
+     2    0.12    0.62    1.04    7.49 v hold9834/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9833 (net)
+                  0.63    0.07    7.56 v hold9891/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.11    0.92    8.48 v hold9891/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9890 (net)
+                  0.11    0.00    8.48 v _20742_/B (sg13cmos5l_nand2_1)
+     2    0.01    0.09    0.12    8.60 ^ _20742_/Y (sg13cmos5l_nand2_1)
+                                         _04370_ (net)
+                  0.09    0.00    8.60 ^ hold9892/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.05    0.59    9.19 ^ hold9892/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9891 (net)
+                  0.05    0.00    9.19 ^ hold9877/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59    9.78 ^ hold9877/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9876 (net)
+                  0.07    0.00    9.78 ^ hold9835/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   10.37 ^ hold9835/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9834 (net)
+                  0.07    0.00   10.37 ^ hold9878/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.60   10.97 ^ hold9878/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9877 (net)
+                  0.08    0.00   10.97 ^ hold9791/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   11.58 ^ hold9791/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9790 (net)
+                  0.07    0.00   11.58 ^ hold9879/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   12.17 ^ hold9879/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9878 (net)
+                  0.07    0.00   12.17 ^ hold9836/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.58   12.75 ^ hold9836/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9835 (net)
+                  0.06    0.00   12.75 ^ hold9880/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   13.34 ^ hold9880/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9879 (net)
+                  0.07    0.00   13.34 ^ hold9752/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   13.94 ^ hold9752/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9751 (net)
+                  0.07    0.00   13.94 ^ hold9881/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.05    0.58   14.51 ^ hold9881/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9880 (net)
+                  0.05    0.00   14.51 ^ hold9837/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.59   15.10 ^ hold9837/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9836 (net)
+                  0.08    0.00   15.10 ^ hold9792/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   15.70 ^ hold9792/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9791 (net)
+                  0.07    0.00   15.70 ^ hold9838/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   16.29 ^ hold9838/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9837 (net)
+                  0.07    0.00   16.29 ^ _20744_/A (sg13cmos5l_inv_1)
+     2    0.01    0.07    0.08   16.37 v _20744_/Y (sg13cmos5l_inv_1)
+                                         _04372_ (net)
+                  0.07    0.00   16.37 v hold9839/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   16.98 v hold9839/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9838 (net)
+                  0.06    0.00   16.98 v hold9793/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   17.59 v hold9793/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9792 (net)
+                  0.06    0.00   17.59 v hold9840/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   18.20 v hold9840/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9839 (net)
+                  0.06    0.00   18.20 v hold9753/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.60   18.80 v hold9753/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9752 (net)
+                  0.06    0.00   18.80 v hold9841/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.60   19.40 v hold9841/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9840 (net)
+                  0.06    0.00   19.40 v hold9794/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.62   20.02 v hold9794/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9793 (net)
+                  0.07    0.00   20.02 v hold9842/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.07    0.62   20.64 v hold9842/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9841 (net)
+                  0.07    0.00   20.64 v _22483_/B (sg13cmos5l_and2_1)
+                                 20.64   data arrival time
+
+                         20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock source latency
+     2    0.19    0.00    0.00   20.83 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   20.83 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.24    0.67    0.25   21.08 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.79    0.28   21.36 ^ clkbuf_0_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.08    0.08    0.33   21.69 ^ clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk (net)
+                  0.09    0.01   21.70 ^ clkbuf_1_1__f_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.17    0.08    0.15   21.86 ^ clkbuf_1_1__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_1_1__leaf_core.apb3Router_1.clk (net)
+                  0.11    0.04   21.90 ^ _22483_/A (sg13cmos5l_and2_1)
+                         -0.06   21.84   clock uncertainty
+                          0.00   21.84   clock reconvergence pessimism
+                          0.00   21.84   clock gating setup time
+                                 21.84   data required time
+-----------------------------------------------------------------------------
+                                 21.84   data required time
+                                -20.64   data arrival time
+-----------------------------------------------------------------------------
+                                  1.20   slack (MET)
+
+
+Startpoint: srams_0 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.68    0.25    0.25 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.81    0.29    0.54 ^ clkbuf_0_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.09    0.09    0.34    0.87 ^ clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk (net)
+                  0.09    0.01    0.88 ^ clkbuf_1_0__f_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     3    0.15    0.07    0.15    1.04 ^ clkbuf_1_0__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_1_0__leaf_core.apb3Router_1.clk (net)
+                  0.13    0.05    1.09 ^ _22467_/A (sg13cmos5l_and2_1)
+     1    0.02    0.15    0.25    1.34 ^ _22467_/X (sg13cmos5l_and2_1)
+                                         core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.15    0.00    1.34 ^ clkbuf_0_core.core_srams_0.io_sram_A_BIST_CLK/A (sg13cmos5l_buf_16)
+     2    0.04    0.04    0.16    1.50 ^ clkbuf_0_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.04    0.00    1.50 ^ clkbuf_1_0__f_core.core_srams_0.io_sram_A_BIST_CLK/A (sg13cmos5l_buf_16)
+     1    0.01    0.03    0.10    1.60 ^ clkbuf_1_0__f_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+                                         clknet_1_0__leaf_core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.03    0.00    1.60 ^ srams_0/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+     1    0.02    0.06    6.32    7.92 v srams_0/A_DOUT[22] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                                         core.axi4ReadOnlyDecoder_1.io_outputs_0_r_payload_data[22] (net)
+                  0.05    0.00    7.92 v wire9936/A (sg13cmos5l_buf_4)
+     1    0.06    0.10    0.17    8.09 v wire9936/X (sg13cmos5l_buf_4)
+                                         net9935 (net)
+                  0.11    0.02    8.11 v wire9739/A (sg13cmos5l_buf_4)
+     2    0.06    0.11    0.20    8.31 v wire9739/X (sg13cmos5l_buf_4)
+                                         net9738 (net)
+                  0.11    0.01    8.32 v _19684_/A0 (sg13cmos5l_mux2_1)
+     1    0.00    0.06    0.20    8.52 v _19684_/X (sg13cmos5l_mux2_1)
+                                         _03473_ (net)
+                  0.06    0.00    8.52 v _19686_/A2 (sg13cmos5l_o21ai_1)
+     1    0.03    0.53    0.44    8.96 ^ _19686_/Y (sg13cmos5l_o21ai_1)
+                                         _03475_ (net)
+                  0.53    0.01    8.97 ^ _19687_/B1 (sg13cmos5l_a22oi_1)
+     3    0.02    0.26    0.35    9.32 v _19687_/Y (sg13cmos5l_a22oi_1)
+                                         _03476_ (net)
+                  0.26    0.00    9.32 v _19688_/B (sg13cmos5l_nor2_1)
+     1    0.01    0.23    0.17    9.49 ^ _19688_/Y (sg13cmos5l_nor2_1)
+                                         _03477_ (net)
+                  0.23    0.00    9.49 ^ _19689_/B1 (sg13cmos5l_a21oi_1)
+     3    0.02    0.35    0.21    9.70 v _19689_/Y (sg13cmos5l_a21oi_1)
+                                         _03478_ (net)
+                  0.35    0.00    9.70 v _19703_/A2 (sg13cmos5l_a21oi_1)
+     2    0.03    0.43    0.49   10.19 ^ _19703_/Y (sg13cmos5l_a21oi_1)
+                                         _03492_ (net)
+                  0.43    0.01   10.20 ^ _19753_/A2 (sg13cmos5l_o21ai_1)
+     4    0.03    0.38    0.47   10.67 v _19753_/Y (sg13cmos5l_o21ai_1)
+                                         _03542_ (net)
+                  0.38    0.00   10.67 v _19780_/A (sg13cmos5l_or2_1)
+     4    0.02    0.13    0.35   11.02 v _19780_/X (sg13cmos5l_or2_1)
+                                         _03569_ (net)
+                  0.13    0.00   11.02 v _19825_/B (sg13cmos5l_or3_1)
+     4    0.04    0.23    0.43   11.44 v _19825_/X (sg13cmos5l_or3_1)
+                                         _03614_ (net)
+                  0.23    0.01   11.45 v _19936_/A (sg13cmos5l_nor3_1)
+     2    0.01    0.33    0.34   11.79 ^ _19936_/Y (sg13cmos5l_nor3_1)
+                                         _03725_ (net)
+                  0.33    0.00   11.79 ^ _19937_/B (sg13cmos5l_and2_1)
+     6    0.04    0.25    0.39   12.18 ^ _19937_/X (sg13cmos5l_and2_1)
+                                         _03726_ (net)
+                  0.25    0.00   12.18 ^ _20163_/A_N (sg13cmos5l_nand3b_1)
+     1    0.01    0.08    0.19   12.38 ^ _20163_/Y (sg13cmos5l_nand3b_1)
+                                         _03947_ (net)
+                  0.08    0.00   12.38 ^ _20164_/B1 (sg13cmos5l_o21ai_1)
+     4    0.03    0.28    0.26   12.63 v _20164_/Y (sg13cmos5l_o21ai_1)
+                                         _03948_ (net)
+                  0.28    0.00   12.63 v _20186_/A_N (sg13cmos5l_nand2b_1)
+     2    0.01    0.15    0.26   12.89 v _20186_/Y (sg13cmos5l_nand2b_1)
+                                         _03968_ (net)
+                  0.15    0.00   12.89 v _20187_/B1 (sg13cmos5l_a221oi_1)
+     1    0.03    0.60    0.55   13.44 ^ _20187_/Y (sg13cmos5l_a221oi_1)
+                                         _03969_ (net)
+                  0.60    0.00   13.44 ^ _20188_/B (sg13cmos5l_nand2b_1)
+     1    0.00    0.13    0.22   13.66 v _20188_/Y (sg13cmos5l_nand2b_1)
+                                         _03970_ (net)
+                  0.13    0.00   13.66 v _20189_/B1 (sg13cmos5l_o21ai_1)
+     8    0.10    1.59    0.60   14.26 ^ _20189_/Y (sg13cmos5l_o21ai_1)
+                                         _03971_ (net)
+                  1.59    0.04   14.30 ^ place7753/A (sg13cmos5l_buf_1)
+     7    0.05    0.35    0.62   14.92 ^ place7753/X (sg13cmos5l_buf_1)
+                                         net7752 (net)
+                  0.35    0.00   14.92 ^ place7747/A (sg13cmos5l_buf_1)
+     8    0.08    0.51    0.54   15.47 ^ place7747/X (sg13cmos5l_buf_1)
+                                         net7746 (net)
+                  0.51    0.01   15.47 ^ place7746/A (sg13cmos5l_buf_1)
+     4    0.05    0.34    0.45   15.93 ^ place7746/X (sg13cmos5l_buf_1)
+                                         net7745 (net)
+                  0.34    0.01   15.94 ^ place7742/A (sg13cmos5l_buf_1)
+     8    0.07    0.47    0.51   16.45 ^ place7742/X (sg13cmos5l_buf_1)
+                                         net7741 (net)
+                  0.47    0.01   16.46 ^ place7741/A (sg13cmos5l_buf_1)
+     7    0.05    0.35    0.45   16.91 ^ place7741/X (sg13cmos5l_buf_1)
+                                         net7740 (net)
+                  0.35    0.00   16.91 ^ place7740/A (sg13cmos5l_buf_1)
+     6    0.05    0.32    0.41   17.32 ^ place7740/X (sg13cmos5l_buf_1)
+                                         net7739 (net)
+                  0.32    0.00   17.33 ^ _21052_/S1 (sg13cmos5l_mux4_1)
+     1    0.01    0.09    0.25   17.57 ^ _21052_/X (sg13cmos5l_mux4_1)
+                                         _04575_ (net)
+                  0.09    0.00   17.57 ^ _21053_/B (sg13cmos5l_or2_1)
+     1    0.01    0.07    0.14   17.71 ^ _21053_/X (sg13cmos5l_or2_1)
+                                         _04576_ (net)
+                  0.07    0.00   17.71 ^ _21054_/B1 (sg13cmos5l_o21ai_1)
+     1    0.00    0.12    0.09   17.80 v _21054_/Y (sg13cmos5l_o21ai_1)
+                                         _04577_ (net)
+                  0.12    0.00   17.80 v _21069_/A (sg13cmos5l_nor4_1)
+     1    0.00    0.21    0.27   18.07 ^ _21069_/Y (sg13cmos5l_nor4_1)
+                                         _00017_ (net)
+                  0.21    0.00   18.07 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/D (sg13cmos5l_dfrbpq_1)
+                                 18.07   data arrival time
+
+                         20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock source latency
+     2    0.19    0.00    0.00   20.83 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   20.83 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.24    0.67    0.25   21.08 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.77    0.27   21.35 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.06    0.31   21.66 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.06    0.00   21.66 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.24    0.11    0.15   21.82 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.17    0.07   21.88 ^ clkbuf_2_0_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.29    0.14    0.23   22.11 ^ clkbuf_2_0_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_0_0_core.apb3Router_1.clk_regs (net)
+                  0.14    0.02   22.13 ^ clkbuf_5_5__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.16    0.09    0.19   22.32 ^ clkbuf_5_5__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_5__leaf_core.apb3Router_1.clk_regs (net)
+                  0.09    0.01   22.33 ^ clkbuf_leaf_29_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    15    0.09    0.06    0.15   22.48 ^ clkbuf_leaf_29_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_29_core.apb3Router_1.clk_regs (net)
+                  0.06    0.00   22.48 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+                         -0.06   22.42   clock uncertainty
+                          0.00   22.42   clock reconvergence pessimism
+                         -0.26   22.16   library setup time
+                                 22.16   data required time
+-----------------------------------------------------------------------------
+                                 22.16   data required time
+                                -18.07   data arrival time
+-----------------------------------------------------------------------------
+                                  4.09   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK')
+Endpoint: jtag_tdo (output port clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                         33.33   33.33   clock JTAG_TCK' (rise edge)
+                          0.00   33.33   clock source latency
+     2    0.23    0.00    0.00   33.33 v jtag_tck (in)
+                                         jtag_tck (net)
+                  0.00    0.00   33.33 v pad_jtag_tck/pad (sg13cmos5l_IOPadIn)
+     1    0.09    0.36    0.74   34.07 v pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+                                         core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.28    0.04   34.12 v clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+    16    0.40    0.11    0.24   34.36 v clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.33    0.15   34.51 v clkbuf_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+     6    0.04    0.05    0.23   34.74 v clkbuf_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.05    0.00   34.74 v _32199__9750/A (sg13cmos5l_inv_1)
+     1    0.01    0.06    0.07   34.81 ^ _32199__9750/Y (sg13cmos5l_inv_1)
+                                         net9749 (net)
+                  0.06    0.00   34.81 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK (sg13cmos5l_dfrbpq_1)
+     1    0.06    0.37    0.51   35.31 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.io_jtag_tdo (net)
+                  0.49    0.01   35.32 ^ pad_jtag_tdo/c2p (sg13cmos5l_IOPadOut4mA)
+     2   10.00   14.17    8.81   44.13 ^ pad_jtag_tdo/pad (sg13cmos5l_IOPadOut4mA)
+                                         jtag_tdo (net)
+                  0.00    0.00   44.13 ^ jtag_tdo (out)
+                                 44.13   data arrival time
+
+                         66.67   66.67   clock JTAG_TCK (rise edge)
+                          0.00   66.67   clock network delay (propagated)
+                         -0.12   66.55   clock uncertainty
+                          0.00   66.55   clock reconvergence pessimism
+                        -15.80   50.75   output external delay
+                                 50.75   data required time
+-----------------------------------------------------------------------------
+                                 50.75   data required time
+                                -44.13   data arrival time
+-----------------------------------------------------------------------------
+                                  6.62   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: _22483_ (rising clock gating-check end-point clocked by CORE_CLK)
+Path Group: gated clock
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.68    0.25    0.25 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.80    0.28    0.53 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.07    0.31    0.84 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.07    0.00    0.84 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.25    0.11    0.16    1.00 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.11    0.01    1.01 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.30    0.14    0.20    1.21 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_2_0_core.apb3Router_1.clk_regs (net)
+                  0.16    0.04    1.25 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.24    0.07    0.18    1.44 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_19__leaf_core.apb3Router_1.clk_regs (net)
+                  0.27    0.13    1.56 ^ clkbuf_leaf_167_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    11    0.08    0.06    0.22    1.78 ^ clkbuf_leaf_167_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_167_core.apb3Router_1.clk_regs (net)
+                  0.06    0.00    1.78 ^ core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_/CLK (sg13cmos5l_dfrbpq_1)
+     4    0.15    0.95    0.89    2.67 ^ core.core_gpio._zz_io_gpio_write_2$_DFFE_PP_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.core_gpio._zz_io_gpio_write_2 (net)
+                  0.95    0.01    2.68 ^ hold9902/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.89    3.57 ^ hold9902/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9901 (net)
+                  0.08    0.00    3.57 ^ hold9889/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.12    0.65    4.22 ^ hold9889/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9888 (net)
+                  0.12    0.00    4.22 ^ _20741_/A (sg13cmos5l_nand2_1)
+     3    0.16    1.50    1.11    5.33 v _20741_/Y (sg13cmos5l_nand2_1)
+                                         _04369_ (net)
+                  1.50    0.03    5.36 v hold9890/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    1.09    6.45 v hold9890/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9889 (net)
+                  0.06    0.00    6.45 v hold9834/A (sg13cmos5l_dlygate4sd3_1)
+     2    0.12    0.62    1.04    7.49 v hold9834/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9833 (net)
+                  0.63    0.07    7.56 v hold9891/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.11    0.92    8.48 v hold9891/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9890 (net)
+                  0.11    0.00    8.48 v _20742_/B (sg13cmos5l_nand2_1)
+     2    0.01    0.09    0.12    8.60 ^ _20742_/Y (sg13cmos5l_nand2_1)
+                                         _04370_ (net)
+                  0.09    0.00    8.60 ^ hold9892/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.05    0.59    9.19 ^ hold9892/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9891 (net)
+                  0.05    0.00    9.19 ^ hold9877/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59    9.78 ^ hold9877/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9876 (net)
+                  0.07    0.00    9.78 ^ hold9835/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   10.37 ^ hold9835/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9834 (net)
+                  0.07    0.00   10.37 ^ hold9878/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.60   10.97 ^ hold9878/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9877 (net)
+                  0.08    0.00   10.97 ^ hold9791/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   11.58 ^ hold9791/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9790 (net)
+                  0.07    0.00   11.58 ^ hold9879/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   12.17 ^ hold9879/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9878 (net)
+                  0.07    0.00   12.17 ^ hold9836/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.58   12.75 ^ hold9836/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9835 (net)
+                  0.06    0.00   12.75 ^ hold9880/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   13.34 ^ hold9880/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9879 (net)
+                  0.07    0.00   13.34 ^ hold9752/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   13.94 ^ hold9752/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9751 (net)
+                  0.07    0.00   13.94 ^ hold9881/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.05    0.58   14.51 ^ hold9881/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9880 (net)
+                  0.05    0.00   14.51 ^ hold9837/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.08    0.59   15.10 ^ hold9837/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9836 (net)
+                  0.08    0.00   15.10 ^ hold9792/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.60   15.70 ^ hold9792/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9791 (net)
+                  0.07    0.00   15.70 ^ hold9838/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.59   16.29 ^ hold9838/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9837 (net)
+                  0.07    0.00   16.29 ^ _20744_/A (sg13cmos5l_inv_1)
+     2    0.01    0.07    0.08   16.37 v _20744_/Y (sg13cmos5l_inv_1)
+                                         _04372_ (net)
+                  0.07    0.00   16.37 v hold9839/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   16.98 v hold9839/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9838 (net)
+                  0.06    0.00   16.98 v hold9793/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   17.59 v hold9793/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9792 (net)
+                  0.06    0.00   17.59 v hold9840/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.61   18.20 v hold9840/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9839 (net)
+                  0.06    0.00   18.20 v hold9753/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.60   18.80 v hold9753/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9752 (net)
+                  0.06    0.00   18.80 v hold9841/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.06    0.60   19.40 v hold9841/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9840 (net)
+                  0.06    0.00   19.40 v hold9794/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.01    0.07    0.62   20.02 v hold9794/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9793 (net)
+                  0.07    0.00   20.02 v hold9842/A (sg13cmos5l_dlygate4sd3_1)
+     1    0.00    0.07    0.62   20.64 v hold9842/X (sg13cmos5l_dlygate4sd3_1)
+                                         net9841 (net)
+                  0.07    0.00   20.64 v _22483_/B (sg13cmos5l_and2_1)
+                                 20.64   data arrival time
+
+                         20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock source latency
+     2    0.19    0.00    0.00   20.83 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   20.83 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.24    0.67    0.25   21.08 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.79    0.28   21.36 ^ clkbuf_0_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.08    0.08    0.33   21.69 ^ clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk (net)
+                  0.09    0.01   21.70 ^ clkbuf_1_1__f_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.17    0.08    0.15   21.86 ^ clkbuf_1_1__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_1_1__leaf_core.apb3Router_1.clk (net)
+                  0.11    0.04   21.90 ^ _22483_/A (sg13cmos5l_and2_1)
+                         -0.06   21.84   clock uncertainty
+                          0.00   21.84   clock reconvergence pessimism
+                          0.00   21.84   clock gating setup time
+                                 21.84   data required time
+-----------------------------------------------------------------------------
+                                 21.84   data required time
+                                -20.64   data arrival time
+-----------------------------------------------------------------------------
+                                  1.20   slack (MET)
+
+
+Startpoint: srams_0 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock CORE_CLK (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.24    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00    0.00 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.25    0.68    0.25    0.25 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.81    0.29    0.54 ^ clkbuf_0_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     2    0.09    0.09    0.34    0.87 ^ clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk (net)
+                  0.09    0.01    0.88 ^ clkbuf_1_0__f_core.apb3Router_1.clk/A (sg13cmos5l_buf_16)
+     3    0.15    0.07    0.15    1.04 ^ clkbuf_1_0__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+                                         clknet_1_0__leaf_core.apb3Router_1.clk (net)
+                  0.13    0.05    1.09 ^ _22467_/A (sg13cmos5l_and2_1)
+     1    0.02    0.15    0.25    1.34 ^ _22467_/X (sg13cmos5l_and2_1)
+                                         core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.15    0.00    1.34 ^ clkbuf_0_core.core_srams_0.io_sram_A_BIST_CLK/A (sg13cmos5l_buf_16)
+     2    0.04    0.04    0.16    1.50 ^ clkbuf_0_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.04    0.00    1.50 ^ clkbuf_1_0__f_core.core_srams_0.io_sram_A_BIST_CLK/A (sg13cmos5l_buf_16)
+     1    0.01    0.03    0.10    1.60 ^ clkbuf_1_0__f_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+                                         clknet_1_0__leaf_core.core_srams_0.io_sram_A_BIST_CLK (net)
+                  0.03    0.00    1.60 ^ srams_0/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+     1    0.02    0.06    6.32    7.92 v srams_0/A_DOUT[22] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+                                         core.axi4ReadOnlyDecoder_1.io_outputs_0_r_payload_data[22] (net)
+                  0.05    0.00    7.92 v wire9936/A (sg13cmos5l_buf_4)
+     1    0.06    0.10    0.17    8.09 v wire9936/X (sg13cmos5l_buf_4)
+                                         net9935 (net)
+                  0.11    0.02    8.11 v wire9739/A (sg13cmos5l_buf_4)
+     2    0.06    0.11    0.20    8.31 v wire9739/X (sg13cmos5l_buf_4)
+                                         net9738 (net)
+                  0.11    0.01    8.32 v _19684_/A0 (sg13cmos5l_mux2_1)
+     1    0.00    0.06    0.20    8.52 v _19684_/X (sg13cmos5l_mux2_1)
+                                         _03473_ (net)
+                  0.06    0.00    8.52 v _19686_/A2 (sg13cmos5l_o21ai_1)
+     1    0.03    0.53    0.44    8.96 ^ _19686_/Y (sg13cmos5l_o21ai_1)
+                                         _03475_ (net)
+                  0.53    0.01    8.97 ^ _19687_/B1 (sg13cmos5l_a22oi_1)
+     3    0.02    0.26    0.35    9.32 v _19687_/Y (sg13cmos5l_a22oi_1)
+                                         _03476_ (net)
+                  0.26    0.00    9.32 v _19688_/B (sg13cmos5l_nor2_1)
+     1    0.01    0.23    0.17    9.49 ^ _19688_/Y (sg13cmos5l_nor2_1)
+                                         _03477_ (net)
+                  0.23    0.00    9.49 ^ _19689_/B1 (sg13cmos5l_a21oi_1)
+     3    0.02    0.35    0.21    9.70 v _19689_/Y (sg13cmos5l_a21oi_1)
+                                         _03478_ (net)
+                  0.35    0.00    9.70 v _19703_/A2 (sg13cmos5l_a21oi_1)
+     2    0.03    0.43    0.49   10.19 ^ _19703_/Y (sg13cmos5l_a21oi_1)
+                                         _03492_ (net)
+                  0.43    0.01   10.20 ^ _19753_/A2 (sg13cmos5l_o21ai_1)
+     4    0.03    0.38    0.47   10.67 v _19753_/Y (sg13cmos5l_o21ai_1)
+                                         _03542_ (net)
+                  0.38    0.00   10.67 v _19780_/A (sg13cmos5l_or2_1)
+     4    0.02    0.13    0.35   11.02 v _19780_/X (sg13cmos5l_or2_1)
+                                         _03569_ (net)
+                  0.13    0.00   11.02 v _19825_/B (sg13cmos5l_or3_1)
+     4    0.04    0.23    0.43   11.44 v _19825_/X (sg13cmos5l_or3_1)
+                                         _03614_ (net)
+                  0.23    0.01   11.45 v _19936_/A (sg13cmos5l_nor3_1)
+     2    0.01    0.33    0.34   11.79 ^ _19936_/Y (sg13cmos5l_nor3_1)
+                                         _03725_ (net)
+                  0.33    0.00   11.79 ^ _19937_/B (sg13cmos5l_and2_1)
+     6    0.04    0.25    0.39   12.18 ^ _19937_/X (sg13cmos5l_and2_1)
+                                         _03726_ (net)
+                  0.25    0.00   12.18 ^ _20163_/A_N (sg13cmos5l_nand3b_1)
+     1    0.01    0.08    0.19   12.38 ^ _20163_/Y (sg13cmos5l_nand3b_1)
+                                         _03947_ (net)
+                  0.08    0.00   12.38 ^ _20164_/B1 (sg13cmos5l_o21ai_1)
+     4    0.03    0.28    0.26   12.63 v _20164_/Y (sg13cmos5l_o21ai_1)
+                                         _03948_ (net)
+                  0.28    0.00   12.63 v _20186_/A_N (sg13cmos5l_nand2b_1)
+     2    0.01    0.15    0.26   12.89 v _20186_/Y (sg13cmos5l_nand2b_1)
+                                         _03968_ (net)
+                  0.15    0.00   12.89 v _20187_/B1 (sg13cmos5l_a221oi_1)
+     1    0.03    0.60    0.55   13.44 ^ _20187_/Y (sg13cmos5l_a221oi_1)
+                                         _03969_ (net)
+                  0.60    0.00   13.44 ^ _20188_/B (sg13cmos5l_nand2b_1)
+     1    0.00    0.13    0.22   13.66 v _20188_/Y (sg13cmos5l_nand2b_1)
+                                         _03970_ (net)
+                  0.13    0.00   13.66 v _20189_/B1 (sg13cmos5l_o21ai_1)
+     8    0.10    1.59    0.60   14.26 ^ _20189_/Y (sg13cmos5l_o21ai_1)
+                                         _03971_ (net)
+                  1.59    0.04   14.30 ^ place7753/A (sg13cmos5l_buf_1)
+     7    0.05    0.35    0.62   14.92 ^ place7753/X (sg13cmos5l_buf_1)
+                                         net7752 (net)
+                  0.35    0.00   14.92 ^ place7747/A (sg13cmos5l_buf_1)
+     8    0.08    0.51    0.54   15.47 ^ place7747/X (sg13cmos5l_buf_1)
+                                         net7746 (net)
+                  0.51    0.01   15.47 ^ place7746/A (sg13cmos5l_buf_1)
+     4    0.05    0.34    0.45   15.93 ^ place7746/X (sg13cmos5l_buf_1)
+                                         net7745 (net)
+                  0.34    0.01   15.94 ^ place7742/A (sg13cmos5l_buf_1)
+     8    0.07    0.47    0.51   16.45 ^ place7742/X (sg13cmos5l_buf_1)
+                                         net7741 (net)
+                  0.47    0.01   16.46 ^ place7741/A (sg13cmos5l_buf_1)
+     7    0.05    0.35    0.45   16.91 ^ place7741/X (sg13cmos5l_buf_1)
+                                         net7740 (net)
+                  0.35    0.00   16.91 ^ place7740/A (sg13cmos5l_buf_1)
+     6    0.05    0.32    0.41   17.32 ^ place7740/X (sg13cmos5l_buf_1)
+                                         net7739 (net)
+                  0.32    0.00   17.33 ^ _21052_/S1 (sg13cmos5l_mux4_1)
+     1    0.01    0.09    0.25   17.57 ^ _21052_/X (sg13cmos5l_mux4_1)
+                                         _04575_ (net)
+                  0.09    0.00   17.57 ^ _21053_/B (sg13cmos5l_or2_1)
+     1    0.01    0.07    0.14   17.71 ^ _21053_/X (sg13cmos5l_or2_1)
+                                         _04576_ (net)
+                  0.07    0.00   17.71 ^ _21054_/B1 (sg13cmos5l_o21ai_1)
+     1    0.00    0.12    0.09   17.80 v _21054_/Y (sg13cmos5l_o21ai_1)
+                                         _04577_ (net)
+                  0.12    0.00   17.80 v _21069_/A (sg13cmos5l_nor4_1)
+     1    0.00    0.21    0.27   18.07 ^ _21069_/Y (sg13cmos5l_nor4_1)
+                                         _00017_ (net)
+                  0.21    0.00   18.07 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/D (sg13cmos5l_dfrbpq_1)
+                                 18.07   data arrival time
+
+                         20.83   20.83   clock CORE_CLK (rise edge)
+                          0.00   20.83   clock source latency
+     2    0.19    0.00    0.00   20.83 ^ clk (in)
+                                         clk (net)
+                  0.00    0.00   20.83 ^ pad_clk/pad (sg13cmos5l_IOPadIn)
+     2    0.24    0.67    0.25   21.08 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+                                         core.apb3Router_1.clk (net)
+                  0.77    0.27   21.35 ^ clkbuf_regs_0_CORE_CLK/A (sg13cmos5l_buf_16)
+     1    0.02    0.06    0.31   21.66 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+                                         core.apb3Router_1.clk_regs (net)
+                  0.06    0.00   21.66 ^ clkbuf_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     4    0.24    0.11    0.15   21.82 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.apb3Router_1.clk_regs (net)
+                  0.17    0.07   21.88 ^ clkbuf_2_0_0_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     8    0.29    0.14    0.23   22.11 ^ clkbuf_2_0_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_2_0_0_core.apb3Router_1.clk_regs (net)
+                  0.14    0.02   22.13 ^ clkbuf_5_5__f_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+     7    0.16    0.09    0.19   22.32 ^ clkbuf_5_5__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_5_5__leaf_core.apb3Router_1.clk_regs (net)
+                  0.09    0.01   22.33 ^ clkbuf_leaf_29_core.apb3Router_1.clk_regs/A (sg13cmos5l_buf_16)
+    15    0.09    0.06    0.15   22.48 ^ clkbuf_leaf_29_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+                                         clknet_leaf_29_core.apb3Router_1.clk_regs (net)
+                  0.06    0.00   22.48 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+                         -0.06   22.42   clock uncertainty
+                          0.00   22.42   clock reconvergence pessimism
+                         -0.26   22.16   library setup time
+                                 22.16   data required time
+-----------------------------------------------------------------------------
+                                 22.16   data required time
+                                -18.07   data arrival time
+-----------------------------------------------------------------------------
+                                  4.09   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK')
+Endpoint: jtag_tdo (output port clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: max
+Corner: slow
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                         33.33   33.33   clock JTAG_TCK' (rise edge)
+                          0.00   33.33   clock source latency
+     2    0.23    0.00    0.00   33.33 v jtag_tck (in)
+                                         jtag_tck (net)
+                  0.00    0.00   33.33 v pad_jtag_tck/pad (sg13cmos5l_IOPadIn)
+     1    0.09    0.36    0.74   34.07 v pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+                                         core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.28    0.04   34.12 v clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+    16    0.40    0.11    0.24   34.36 v clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.33    0.15   34.51 v clkbuf_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/A (sg13cmos5l_buf_16)
+     6    0.04    0.05    0.23   34.74 v clkbuf_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+                                         clknet_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck (net)
+                  0.05    0.00   34.74 v _32199__9750/A (sg13cmos5l_inv_1)
+     1    0.01    0.06    0.07   34.81 ^ _32199__9750/Y (sg13cmos5l_inv_1)
+                                         net9749 (net)
+                  0.06    0.00   34.81 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK (sg13cmos5l_dfrbpq_1)
+     1    0.06    0.37    0.51   35.31 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/Q (sg13cmos5l_dfrbpq_1)
+                                         core.jtagBridge_1.io_jtag_tdo (net)
+                  0.49    0.01   35.32 ^ pad_jtag_tdo/c2p (sg13cmos5l_IOPadOut4mA)
+     2   10.00   14.17    8.81   44.13 ^ pad_jtag_tdo/pad (sg13cmos5l_IOPadOut4mA)
+                                         jtag_tdo (net)
+                  0.00    0.00   44.13 ^ jtag_tdo (out)
+                                 44.13   data arrival time
+
+                         66.67   66.67   clock JTAG_TCK (rise edge)
+                          0.00   66.67   clock network delay (propagated)
+                         -0.12   66.55   clock uncertainty
+                          0.00   66.55   clock reconvergence pessimism
+                        -15.80   50.75   output external delay
+                                 50.75   data required time
+-----------------------------------------------------------------------------
+                                 50.75   data required time
+                                -44.13   data arrival time
+-----------------------------------------------------------------------------
+                                  6.62   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+pad_jtag_tdo/pad                        1.20   14.17  -12.97 (VIOLATED)
+pad_gpio_2/pad                          1.20    2.14   -0.94 (VIOLATED)
+pad_gpio_3/pad                          1.20    2.13   -0.93 (VIOLATED)
+pad_gpio_0/pad                          1.20    2.10   -0.90 (VIOLATED)
+pad_gpio_1/pad                          1.20    2.10   -0.90 (VIOLATED)
+pad_jtag_tdi/pad                        3.50    4.00   -0.50 (VIOLATED)
+pad_jtag_tms/pad                        3.50    4.00   -0.50 (VIOLATED)
+srams_2/A_DIN[1]                        0.60    0.69   -0.09 (VIOLATED)
+srams_1/A_DIN[31]                       0.60    0.68   -0.09 (VIOLATED)
+srams_3/A_DIN[1]                        0.60    0.65   -0.05 (VIOLATED)
+srams_1/A_DIN[29]                       0.60    0.62   -0.03 (VIOLATED)
+srams_1/A_DIN[27]                       0.60    0.60   -0.01 (VIOLATED)
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_leaf_46_core.apb3Router_1.clk_regs/X      8     22    -14 (VIOLATED)
+clkbuf_leaf_40_core.apb3Router_1.clk_regs/X      8     21    -13 (VIOLATED)
+clkbuf_leaf_50_core.apb3Router_1.clk_regs/X      8     21    -13 (VIOLATED)
+clkbuf_leaf_68_core.apb3Router_1.clk_regs/X      8     21    -13 (VIOLATED)
+clkbuf_leaf_69_core.apb3Router_1.clk_regs/X      8     21    -13 (VIOLATED)
+clkbuf_leaf_129_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_132_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_135_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_153_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_160_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_161_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_192_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_193_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_21_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_25_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_26_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_30_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_35_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_42_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_48_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_51_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_63_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_65_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_77_core.apb3Router_1.clk_regs/X      8     20    -12 (VIOLATED)
+clkbuf_leaf_105_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_106_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_108_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_110_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_112_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_114_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_115_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_116_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_11_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_120_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_121_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_123_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_12_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_130_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_138_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_13_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_145_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_150_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_151_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_152_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_155_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_174_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_176_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_31_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_32_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_43_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_53_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_57_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_67_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_72_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_75_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_84_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_95_core.apb3Router_1.clk_regs/X      8     19    -11 (VIOLATED)
+clkbuf_leaf_109_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_111_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_119_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_122_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_124_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_126_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_133_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_134_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_137_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_139_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_140_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_142_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_146_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_148_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_149_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_14_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_173_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_175_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_194_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_22_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_24_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_33_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_36_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_37_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_39_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_41_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_52_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_58_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_59_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_60_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_64_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_66_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_71_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_73_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_74_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_76_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_83_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_85_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_8_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_90_core.apb3Router_1.clk_regs/X      8     18    -10 (VIOLATED)
+clkbuf_leaf_102_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_107_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_10_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_118_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_128_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_136_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_147_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_156_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_158_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_159_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_16_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_172_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_17_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_183_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_184_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_187_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_18_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_28_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_34_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_38_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_44_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_45_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_55_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_56_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_5_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_61_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_6_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_78_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_80_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_82_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_87_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_88_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_89_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_96_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_leaf_97_core.apb3Router_1.clk_regs/X      8     17     -9 (VIOLATED)
+clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_103_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_104_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_113_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_127_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_131_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_141_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_143_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_154_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_165_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_177_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_178_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_180_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_181_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_182_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_188_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_190_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_191_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_195_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_19_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_27_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_47_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_4_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_54_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_7_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_86_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_9_core.apb3Router_1.clk_regs/X      8     16     -8 (VIOLATED)
+clkbuf_leaf_100_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_101_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_15_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_185_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_186_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_20_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_23_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_29_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_3_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_49_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_62_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_99_core.apb3Router_1.clk_regs/X      8     15     -7 (VIOLATED)
+clkbuf_leaf_0_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_125_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_144_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_157_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_162_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_163_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_81_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_93_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_94_core.apb3Router_1.clk_regs/X      8     14     -6 (VIOLATED)
+clkbuf_leaf_164_core.apb3Router_1.clk_regs/X      8     13     -5 (VIOLATED)
+clkbuf_leaf_166_core.apb3Router_1.clk_regs/X      8     13     -5 (VIOLATED)
+clkbuf_leaf_79_core.apb3Router_1.clk_regs/X      8     13     -5 (VIOLATED)
+clkbuf_leaf_98_core.apb3Router_1.clk_regs/X      8     13     -5 (VIOLATED)
+clkbuf_leaf_169_core.apb3Router_1.clk_regs/X      8     12     -4 (VIOLATED)
+clkbuf_leaf_92_core.apb3Router_1.clk_regs/X      8     12     -4 (VIOLATED)
+clkbuf_leaf_117_core.apb3Router_1.clk_regs/X      8     11     -3 (VIOLATED)
+clkbuf_leaf_167_core.apb3Router_1.clk_regs/X      8     11     -3 (VIOLATED)
+clkbuf_leaf_168_core.apb3Router_1.clk_regs/X      8     11     -3 (VIOLATED)
+clkbuf_leaf_70_core.apb3Router_1.clk_regs/X      8     10     -2 (VIOLATED)
+clkbuf_leaf_91_core.apb3Router_1.clk_regs/X      8     10     -2 (VIOLATED)
+place8690/X                               8     10     -2 (VIOLATED)
+place8763/X                               8     10     -2 (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+pad_jtag_tdo/pad                        0.66   10.00   -9.34 (VIOLATED)
+
+srams_3/A_DOUT[5]                       0.06    0.07   -0.00 (VIOLATED)
+
+srams_0/A_DOUT[24]                      0.06    0.07   -0.00 (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+-12.96565055847168
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+1.2000000476837158
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-10.8047
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+-14.0
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+8.0
+
+==========================================================================
+global route max_fanout_check_slack_limit
+--------------------------------------------------------------------------
+-1.7500
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+-9.338751792907715
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.6612480282783508
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-14.1229
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 12
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 193
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 3
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 4
+
+==========================================================================
+global route report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: srams_0 (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: max
+Corner: slow
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock CORE_CLK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.25    0.25 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+   0.63    0.87 ^ clkbuf_0_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+   0.16    1.04 ^ clkbuf_1_0__f_core.apb3Router_1.clk/X (sg13cmos5l_buf_16)
+   0.30    1.34 ^ _22467_/X (sg13cmos5l_and2_1)
+   0.16    1.50 ^ clkbuf_0_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+   0.10    1.60 ^ clkbuf_1_0__f_core.core_srams_0.io_sram_A_BIST_CLK/X (sg13cmos5l_buf_16)
+   0.00    1.60 ^ srams_0/A_CLK (RM_IHPSG13_1P_512x32_c2_bm_bist)
+   6.32    7.92 v srams_0/A_DOUT[22] (RM_IHPSG13_1P_512x32_c2_bm_bist)
+   0.17    8.09 v wire9936/X (sg13cmos5l_buf_4)
+   0.22    8.31 v wire9739/X (sg13cmos5l_buf_4)
+   0.22    8.52 v _19684_/X (sg13cmos5l_mux2_1)
+   0.44    8.96 ^ _19686_/Y (sg13cmos5l_o21ai_1)
+   0.36    9.32 v _19687_/Y (sg13cmos5l_a22oi_1)
+   0.17    9.49 ^ _19688_/Y (sg13cmos5l_nor2_1)
+   0.21    9.70 v _19689_/Y (sg13cmos5l_a21oi_1)
+   0.49   10.19 ^ _19703_/Y (sg13cmos5l_a21oi_1)
+   0.47   10.67 v _19753_/Y (sg13cmos5l_o21ai_1)
+   0.35   11.02 v _19780_/X (sg13cmos5l_or2_1)
+   0.43   11.44 v _19825_/X (sg13cmos5l_or3_1)
+   0.35   11.79 ^ _19936_/Y (sg13cmos5l_nor3_1)
+   0.39   12.18 ^ _19937_/X (sg13cmos5l_and2_1)
+   0.19   12.38 ^ _20163_/Y (sg13cmos5l_nand3b_1)
+   0.26   12.63 v _20164_/Y (sg13cmos5l_o21ai_1)
+   0.26   12.89 v _20186_/Y (sg13cmos5l_nand2b_1)
+   0.55   13.44 ^ _20187_/Y (sg13cmos5l_a221oi_1)
+   0.22   13.66 v _20188_/Y (sg13cmos5l_nand2b_1)
+   0.60   14.26 ^ _20189_/Y (sg13cmos5l_o21ai_1)
+   0.66   14.92 ^ place7753/X (sg13cmos5l_buf_1)
+   0.55   15.47 ^ place7747/X (sg13cmos5l_buf_1)
+   0.46   15.93 ^ place7746/X (sg13cmos5l_buf_1)
+   0.52   16.45 ^ place7742/X (sg13cmos5l_buf_1)
+   0.46   16.91 ^ place7741/X (sg13cmos5l_buf_1)
+   0.41   17.32 ^ place7740/X (sg13cmos5l_buf_1)
+   0.25   17.57 ^ _21052_/X (sg13cmos5l_mux4_1)
+   0.14   17.71 ^ _21053_/X (sg13cmos5l_or2_1)
+   0.09   17.80 v _21054_/Y (sg13cmos5l_o21ai_1)
+   0.27   18.07 ^ _21069_/Y (sg13cmos5l_nor4_1)
+   0.00   18.07 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/D (sg13cmos5l_dfrbpq_1)
+          18.07   data arrival time
+
+  20.83   20.83   clock CORE_CLK (rise edge)
+   0.00   20.83   clock source latency
+   0.00   20.83 ^ clk (in)
+   0.25   21.08 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+   0.58   21.66 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+   0.15   21.82 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.30   22.11 ^ clkbuf_2_0_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.21   22.32 ^ clkbuf_5_5__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.16   22.48 ^ clkbuf_leaf_29_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.00   22.48 ^ core.core_cpu.RegFilePlugin_regFile_spinal_port0[25]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+  -0.06   22.42   clock uncertainty
+   0.00   22.42   clock reconvergence pessimism
+  -0.26   22.16   library setup time
+          22.16   data required time
+---------------------------------------------------------
+          22.16   data required time
+         -18.07   data arrival time
+---------------------------------------------------------
+           4.09   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_tap_fsm_state[3]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Endpoint: core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_
+          (rising edge-triggered flip-flop clocked by JTAG_TCK')
+Path Group: JTAG_TCK
+Path Type: max
+Corner: slow
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock JTAG_TCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ jtag_tck (in)
+   0.18    0.18 ^ pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+   0.26    0.44 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.31    0.75 ^ clkbuf_4_3_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.01    0.76 ^ core.jtagBridge_1.jtag_tap_fsm_state[3]$_DFF_P_/CLK (sg13cmos5l_dfrbpq_1)
+   0.31    1.07 ^ core.jtagBridge_1.jtag_tap_fsm_state[3]$_DFF_P_/Q (sg13cmos5l_dfrbpq_1)
+   0.31    1.37 ^ _20497_/Y (sg13cmos5l_nor2b_1)
+   0.28    1.65 ^ _20498_/X (sg13cmos5l_and2_1)
+   0.32    1.97 ^ _20516_/X (sg13cmos5l_and2_1)
+   0.25    2.23 v _20519_/Y (sg13cmos5l_nand3b_1)
+   0.10    2.33 ^ _20522_/Y (sg13cmos5l_inv_1)
+   0.12    2.44 v _20524_/Y (sg13cmos5l_a21oi_1)
+   0.15    2.59 ^ _20525_/Y (sg13cmos5l_a21oi_1)
+   0.16    2.76 ^ _20526_/X (sg13cmos5l_a21o_1)
+   0.00    2.76 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/D (sg13cmos5l_dfrbpq_1)
+           2.76   data arrival time
+
+  33.33   33.33   clock JTAG_TCK' (rise edge)
+   0.00   33.33   clock source latency
+   0.00   33.33 v jtag_tck (in)
+   0.74   34.07 v pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+   0.28   34.35 v clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.37   34.72 v clkbuf_4_15_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.07   34.79 ^ _32199__9750/Y (sg13cmos5l_inv_1)
+   0.00   34.79 ^ core.jtagBridge_1.jtag_tap_tdoUnbufferd_regNext$_DFF_N_/CLK (sg13cmos5l_dfrbpq_1)
+  -0.12   34.67   clock uncertainty
+   0.01   34.67   clock reconvergence pessimism
+  -0.21   34.47   library setup time
+          34.47   data required time
+---------------------------------------------------------
+          34.47   data required time
+          -2.76   data arrival time
+---------------------------------------------------------
+          31.71   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_
+            (rising edge-triggered flip-flop clocked by CORE_CLK)
+Endpoint: core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_
+          (rising edge-triggered flip-flop clocked by CORE_CLK)
+Path Group: CORE_CLK
+Path Type: min
+Corner: fast
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock CORE_CLK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.09    0.09 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+   0.40    0.49 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+   0.06    0.55 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.08    0.63 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.11    0.74 ^ clkbuf_5_23__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.10    0.84 ^ clkbuf_leaf_98_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.00    0.84 ^ core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_/CLK (sg13cmos5l_dfrbpq_1)
+   0.16    1.00 v core.core_cpu.decode_to_execute_IS_MUL$_DFFE_PN_/Q (sg13cmos5l_dfrbpq_1)
+   0.09    1.09 v _26644_/X (sg13cmos5l_mux2_1)
+   0.00    1.09 v core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_/D (sg13cmos5l_dfrbpq_1)
+           1.09   data arrival time
+
+   0.00    0.00   clock CORE_CLK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.09    0.09 ^ pad_clk/p2c (sg13cmos5l_IOPadIn)
+   0.42    0.50 ^ clkbuf_regs_0_CORE_CLK/X (sg13cmos5l_buf_16)
+   0.06    0.57 ^ clkbuf_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.08    0.65 ^ clkbuf_2_2_0_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.13    0.78 ^ clkbuf_5_19__f_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.26    1.04 ^ clkbuf_leaf_96_core.apb3Router_1.clk_regs/X (sg13cmos5l_buf_16)
+   0.01    1.05 ^ core.core_cpu.execute_to_memory_IS_MUL$_DFFE_PN_/CLK (sg13cmos5l_dfrbpq_1)
+   0.08    1.13   clock uncertainty
+  -0.02    1.11   clock reconvergence pessimism
+  -0.02    1.09   library hold time
+           1.09   data required time
+---------------------------------------------------------
+           1.09   data required time
+          -1.09   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+Startpoint: core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Endpoint: core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by JTAG_TCK)
+Path Group: JTAG_TCK
+Path Type: min
+Corner: fast
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock JTAG_TCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ jtag_tck (in)
+   0.07    0.07 ^ pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+   0.13    0.19 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.26    0.46 ^ clkbuf_4_12_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.00    0.46 ^ core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+   0.12    0.58 v core.jtagBridge_1.jtag_idcodeArea_shifter[17]$_SDFFE_PN0P_/Q (sg13cmos5l_dfrbpq_1)
+   0.03    0.61 ^ _28440_/Y (sg13cmos5l_nand2_1)
+   0.03    0.64 v _28442_/Y (sg13cmos5l_a21oi_1)
+   0.00    0.64 v core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_/D (sg13cmos5l_dfrbpq_1)
+           0.64   data arrival time
+
+   0.00    0.00   clock JTAG_TCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ jtag_tck (in)
+   0.07    0.07 ^ pad_jtag_tck/p2c (sg13cmos5l_IOPadIn)
+   0.13    0.20 ^ clkbuf_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.30    0.50 ^ clkbuf_4_9_0_core.jtagBridge_1.flowCCUnsafeByToggle_1.io_jtag_tck/X (sg13cmos5l_buf_16)
+   0.00    0.50 ^ core.jtagBridge_1.jtag_idcodeArea_shifter[16]$_SDFFE_PN0P_/CLK (sg13cmos5l_dfrbpq_1)
+   0.06    0.56   clock uncertainty
+   0.00    0.55   clock reconvergence pessimism
+  -0.02    0.53   library hold time
+           0.53   data required time
+---------------------------------------------------------
+           0.53   data required time
+          -0.64   data arrival time
+---------------------------------------------------------
+           0.11   slack (MET)
+
+
+
+==========================================================================
+global route critical path target clock latency max path
+--------------------------------------------------------------------------
+0.7334
+
+==========================================================================
+global route critical path target clock latency min path
+--------------------------------------------------------------------------
+0.8276
+
+==========================================================================
+global route critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+20.6386
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+1.1991
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+5.809987
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Corner: slow
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.02e-05   0.00e+00   7.36e-06   9.75e-05  35.8%
+Combinational          2.02e-06   7.72e-05   9.48e-06   8.87e-05  32.6%
+Clock                  2.87e-12   0.00e+00   2.78e-06   2.78e-06   1.0%
+Macro                  7.66e-05   0.00e+00   5.23e-06   8.18e-05  30.0%
+Pad                    4.09e-07   1.03e-06   1.85e-07   1.62e-06   0.6%
+----------------------------------------------------------------
+Total                  1.69e-04   7.83e-05   2.50e-05   2.72e-04 100.0%
+                          62.1%      28.7%       9.2%
+Corner: typ
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.13e-04   0.00e+00   1.79e-06   1.15e-04  34.2%
+Combinational          2.58e-06   1.03e-04   2.86e-06   1.09e-04  32.4%
+Clock                  5.66e-13   0.00e+00   5.26e-07   5.26e-07   0.2%
+Macro                  1.04e-04   0.00e+00   5.23e-06   1.09e-04  32.6%
+Pad                    5.08e-07   1.28e-06   3.42e-08   1.82e-06   0.5%
+----------------------------------------------------------------
+Total                  2.20e-04   1.05e-04   1.04e-05   3.35e-04 100.0%
+                          65.7%      31.2%       3.1%
+Corner: fast
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.29e-04   0.00e+00   3.43e-06   1.32e-04  27.8%
+Combinational          3.39e-06   1.31e-04   5.78e-06   1.40e-04  29.5%
+Clock                  3.47e-13   0.00e+00   9.98e-07   9.98e-07   0.2%
+Macro                  1.94e-04   0.00e+00   5.23e-06   1.99e-04  41.9%
+Pad                    1.02e-06   1.56e-06   5.99e-08   2.63e-06   0.6%
+----------------------------------------------------------------
+Total                  3.27e-04   1.33e-04   1.55e-05   4.75e-04 100.0%
+                          68.8%      27.9%       3.3%

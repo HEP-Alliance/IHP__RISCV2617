@@ -1,0 +1,184 @@
+
+16. Printing statistics.
+
+=== BufferCC ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        6        - wires
+        6        - wire bits
+        5        - public wires
+        5        - public wire bits
+        4        - ports
+        4        - port bits
+        3  105.235 cells
+        2   97.978   sg13cmos5l_dfrbpq_1
+        1    7.258   sg13cmos5l_tiehi
+
+   Chip area for module '\BufferCC': 105.235200
+     of which used for sequential elements: 97.977600 (93.10%)
+
+=== BufferCC_1 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+        5        - wires
+        5        - wire bits
+        5        - public wires
+        5        - public wire bits
+        4        - ports
+        4        - port bits
+        2   97.978 cells
+        2   97.978   sg13cmos5l_dfrbpq_1
+
+   Chip area for module '\BufferCC_1': 97.977600
+     of which used for sequential elements: 97.977600 (100.00%)
+
+=== LeisureCruiseHarness ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+    19686        - wires
+    19686        - wire bits
+     3631        - public wires
+     3631        - public wire bits
+       12        - ports
+       12        - port bits
+    19570 1.12E+06 cells
+        4 3.19E+05   RM_IHPSG13_1P_512x32_c2_bm_bist
+        5    72000   sg13cmos5l_IOPadIOVdd
+        5    72000   sg13cmos5l_IOPadIOVss
+        6    86400   sg13cmos5l_IOPadIn
+        4    57600   sg13cmos5l_IOPadInOut4mA
+        2    28800   sg13cmos5l_IOPadOut4mA
+        5    72000   sg13cmos5l_IOPadVdd
+        5    72000   sg13cmos5l_IOPadVss
+      139 1.77E+03   sg13cmos5l_a21o_1
+     1361 1.23E+04   sg13cmos5l_a21oi_1
+       10  145.152   sg13cmos5l_a21oi_2
+      150  2177.28   sg13cmos5l_a221oi_1
+      392 4.25E+03   sg13cmos5l_a22oi_1
+      426 3.86E+03   sg13cmos5l_and2_1
+       62   787.45   sg13cmos5l_and3_1
+        2   25.402   sg13cmos5l_and3_2
+       68  987.034   sg13cmos5l_and4_1
+     1978 1.44E+04   sg13cmos5l_buf_1
+        4   181.44   sg13cmos5l_buf_16
+      279 2.53E+03   sg13cmos5l_buf_2
+      181 2.63E+03   sg13cmos5l_buf_4
+      134 3.16E+03   sg13cmos5l_buf_8
+     3262  1.6E+05   sg13cmos5l_dfrbpq_1
+      376 2.05E+03   sg13cmos5l_inv_1
+        4    29.03   sg13cmos5l_inv_2
+     1595 2.89E+04   sg13cmos5l_mux2_1
+      605 2.31E+04   sg13cmos5l_mux4_1
+     2199  1.6E+04   sg13cmos5l_nand2_1
+        3   32.659   sg13cmos5l_nand2_2
+      384 3.48E+03   sg13cmos5l_nand2b_1
+        1   14.515   sg13cmos5l_nand2b_2
+      375     3402   sg13cmos5l_nand3_1
+       64  812.851   sg13cmos5l_nand3b_1
+      129  1.4E+03   sg13cmos5l_nand4_1
+     1079  7830.95   sg13cmos5l_nor2_1
+        7   76.205   sg13cmos5l_nor2_2
+      333 3.02E+03   sg13cmos5l_nor2b_1
+      274 2.49E+03   sg13cmos5l_nor3_1
+        9  146.966   sg13cmos5l_nor3_2
+      135 1.47E+03   sg13cmos5l_nor4_1
+       41  892.685   sg13cmos5l_nor4_2
+     2291 2.08E+04   sg13cmos5l_o21ai_1
+      258 2.34E+03   sg13cmos5l_or2_1
+       33  419.126   sg13cmos5l_or3_1
+       17  246.758   sg13cmos5l_or4_1
+        1    7.258   sg13cmos5l_tiehi
+        1    7.258   sg13cmos5l_tielo
+      593 8.61E+03   sg13cmos5l_xnor2_1
+      279 4.05E+03   sg13cmos5l_xor2_1
+        2        - submodules
+        1        -   BufferCC
+        1        -   BufferCC_1
+
+   Chip area for module '\LeisureCruiseHarness': 1120251.240000
+     of which used for sequential elements: 159801.465600 (14.26%)
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+    19575 1.12E+06 LeisureCruiseHarness
+        3  105.235 BufferCC
+        2   97.978 BufferCC_1
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+    19697        - wires
+    19697        - wire bits
+     3641        - public wires
+     3641        - public wire bits
+       20        - ports
+       20        - port bits
+        -        - memories
+        -        - memory bits
+        -        - processes
+    19575 1.12E+06 cells
+        4 3.19E+05   RM_IHPSG13_1P_512x32_c2_bm_bist
+        5    72000   sg13cmos5l_IOPadIOVdd
+        5    72000   sg13cmos5l_IOPadIOVss
+        6    86400   sg13cmos5l_IOPadIn
+        4    57600   sg13cmos5l_IOPadInOut4mA
+        2    28800   sg13cmos5l_IOPadOut4mA
+        5    72000   sg13cmos5l_IOPadVdd
+        5    72000   sg13cmos5l_IOPadVss
+      139 1.77E+03   sg13cmos5l_a21o_1
+     1361 1.23E+04   sg13cmos5l_a21oi_1
+       10  145.152   sg13cmos5l_a21oi_2
+      150  2177.28   sg13cmos5l_a221oi_1
+      392 4.25E+03   sg13cmos5l_a22oi_1
+      426 3.86E+03   sg13cmos5l_and2_1
+       62   787.45   sg13cmos5l_and3_1
+        2   25.402   sg13cmos5l_and3_2
+       68  987.034   sg13cmos5l_and4_1
+     1978 1.44E+04   sg13cmos5l_buf_1
+        4   181.44   sg13cmos5l_buf_16
+      279 2.53E+03   sg13cmos5l_buf_2
+      181 2.63E+03   sg13cmos5l_buf_4
+      134 3.16E+03   sg13cmos5l_buf_8
+     3266  1.6E+05   sg13cmos5l_dfrbpq_1
+      376 2.05E+03   sg13cmos5l_inv_1
+        4    29.03   sg13cmos5l_inv_2
+     1595 2.89E+04   sg13cmos5l_mux2_1
+      605 2.31E+04   sg13cmos5l_mux4_1
+     2199  1.6E+04   sg13cmos5l_nand2_1
+        3   32.659   sg13cmos5l_nand2_2
+      384 3.48E+03   sg13cmos5l_nand2b_1
+        1   14.515   sg13cmos5l_nand2b_2
+      375     3402   sg13cmos5l_nand3_1
+       64  812.851   sg13cmos5l_nand3b_1
+      129  1.4E+03   sg13cmos5l_nand4_1
+     1079  7830.95   sg13cmos5l_nor2_1
+        7   76.205   sg13cmos5l_nor2_2
+      333 3.02E+03   sg13cmos5l_nor2b_1
+      274 2.49E+03   sg13cmos5l_nor3_1
+        9  146.966   sg13cmos5l_nor3_2
+      135 1.47E+03   sg13cmos5l_nor4_1
+       41  892.685   sg13cmos5l_nor4_2
+     2291 2.08E+04   sg13cmos5l_o21ai_1
+      258 2.34E+03   sg13cmos5l_or2_1
+       33  419.126   sg13cmos5l_or3_1
+       17  246.758   sg13cmos5l_or4_1
+        2   14.515   sg13cmos5l_tiehi
+        1    7.258   sg13cmos5l_tielo
+      593 8.61E+03   sg13cmos5l_xnor2_1
+      279 4.05E+03   sg13cmos5l_xor2_1
+        2  203.213 submodules
+        1  105.235   BufferCC
+        1   97.978   BufferCC_1
+
+   Chip area for top module '\LeisureCruiseHarness': 1120454.452800
+     of which used for sequential elements: 159997.420800 (14.28%)
+
